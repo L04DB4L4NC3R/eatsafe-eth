@@ -1,9 +1,7 @@
     
 web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
-console.log(web3.eth.accounts);
 
-web3.eth.defaultAccount = web3.eth.accounts[0];
 
 var contractData = web3.eth.contract([
 	{
@@ -164,25 +162,21 @@ var contractData = web3.eth.contract([
 		"type": "function"
 	}
 ]);
+web3.eth.defaultAccount = web3.eth.accounts[0];
 
-var contract = contractData.at('0xcc794814dc8be21b80bb36ecef93144c49968f20');
+var contract = contractData.at('0x1647236ceb211f38311a64ca9bc7f2af67a0a1d0');
 
 
 
-$("#submitBtn").on("click",(e)=>{
-    contract.setter("a","a","a","a",1,1,1,1,1,1,(err,result)=>{
-      if(err)
-        console.log(err);
-      else
-        console.log(result);
-    });
-});
+ $("#submitBtn").on("click",(e)=>{
+    contract.setter("a","a","a","a",1,1,1,1,1,1);
+ });
 // Event listener will get fired once setInstructor sets the values
 var eventListener = contract.EatSafe();
 
 eventListener.watch((err,result)=>{
     if(!err){
-        console.log(result)
+       $("#result").html(JSON.stringify(result));// console.log(result)
     } else{
         console.log("error"); 
     }
