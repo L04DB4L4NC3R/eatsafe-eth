@@ -1,3 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>Document</title>
+</head>
+<center>
+    <h1>Hello user</h1>
+    <body>
+        <div id="result"></div>
+        <button id="submitBtn">Try</button>
+        <script src="web3.min.js"></script>
+        <script>
+
     
 web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
 
@@ -167,7 +184,7 @@ web3.eth.defaultAccount = web3.eth.accounts[0];
 var contract = contractData.at('0x1647236ceb211f38311a64ca9bc7f2af67a0a1d0');
 
 
-  contract.setter(data.from,data.to,data.asset,data.timestamp,data.quantity,data.temperature,data.humidity,data.gas,data.equal);
+  contract.setter("<%=data.from%>","<%=data.to%>","<%=data.asset%>","<%=data.timestamp%>","<%=data.quantity%>","<%=data.temperature%>","<%=data.humidity%>","<%=data.gas%>","<%=data.airqual%>","<%=data.soilmois%>");
 // Event listener will get fired once setInstructor sets the values
 var eventListener = contract.EatSafe();
 
@@ -181,6 +198,7 @@ eventListener.watch((err,result)=>{
         break;
       else
         arr.push(block);
+        console.log(arr);
       }
       $("#result").html(JSON.stringify(arr));
         }
@@ -189,3 +207,8 @@ eventListener.watch((err,result)=>{
 
       });
     
+
+        </script>
+    </body>
+</center>
+</html>
