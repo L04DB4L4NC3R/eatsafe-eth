@@ -175,9 +175,20 @@ var contract = contractData.at('0x1647236ceb211f38311a64ca9bc7f2af67a0a1d0');
 var eventListener = contract.EatSafe();
 
 eventListener.watch((err,result)=>{
+    let arr=[];
     if(!err){
-       $("#result").html(JSON.stringify(result));// console.log(result)
-    } else{
-        console.log("error"); 
-    }
-})
+      for(let i=1;;i++)
+      {
+      let block=web3.eth.getBlock(i,true);
+      if(!block)
+        break;
+      else
+        arr.push(block);
+      }
+      $("#result").html(JSON.stringify(arr));
+        }
+    else 
+        console.log(err);
+
+      });
+    
