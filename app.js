@@ -3,7 +3,7 @@ const app = express();
 const hbs = require("express-handlebars");
 require("morgan")("dev");
 const bp = require("body-parser");
-
+const socket = require("socket.io");
 
 app.use(require("cors")());
 
@@ -19,6 +19,9 @@ app.post('/',(req,res,next)=>{
 }); 
 
 
-app.listen(process.env.PORT || 3000,()=>console.log("Listening...."))
+server = app.listen(process.env.PORT || 3000,()=>console.log("Listening...."))
 
-
+const io = socket(server);
+io.on("connection",(socket)=>{
+    console.log(socket.id);
+});
