@@ -19,9 +19,18 @@ app.post('/',(req,res,next)=>{
 }); 
 
 
+app.get('/',(req,res,next)=>{
+    res.render('index2');
+}); 
+
+
+
 server = app.listen(process.env.PORT || 3000,()=>console.log("Listening...."))
 
 const io = socket(server);
 io.on("connection",(socket)=>{
     console.log(socket.id);
+    socket.on("blockchain",(data)=>{
+        io.sockets.emit("blockchain",data);
+    })
 });

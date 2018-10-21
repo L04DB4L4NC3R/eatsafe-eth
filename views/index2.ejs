@@ -183,16 +183,8 @@ var contractData = web3.eth.contract([
 web3.eth.defaultAccount = web3.eth.accounts[0];
 
 var contract = contractData.at('0x8e1df4981c7509c369834fa5b45539c6121bbd57');
-
-
-  contract.setter("<%=data.from%>","<%=data.to%>","<%=data.asset%>","<%=data.timestamp%>",parseInt("<%=data.quantity%>"),parseInt("<%=data.temperature%>"),parseInt("<%=data.humidity%>"),parseInt("<%=data.gas%>"),parseInt("<%=data.airqual%>"),parseInt("<%=data.soilmois%>"));
-// Event listener will get fired once setInstructor sets the values
-var eventListener = contract.EatSafe();
-
-eventListener.watch((err,result)=>{
-    let arr=[];
-    if(!err){
-      for(let i=1;;i++)
+let arr = [] 
+for(let i=1;;i++)
       {
       let block=web3.eth.getBlock(i,true);
       if(!block)
@@ -202,12 +194,9 @@ eventListener.watch((err,result)=>{
         socket.emit("blockchain",arr);
       }
       $("#result").html(JSON.stringify(arr));
-        }
-    else 
-        console.log(err);
 
-      });
-    
+// Event listener will get fired once setInstructor sets the values
+
 
         </script>
     </body>
