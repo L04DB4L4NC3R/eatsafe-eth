@@ -20,7 +20,7 @@
   "dependencies": {
     "body-parser": "^1.19.0",
     "cors": "^2.8.4",
-    "ejs": "^2.6.1",
+    "ejs": "^2.6.2",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
     "ganache-cli": "^6.1.8",
