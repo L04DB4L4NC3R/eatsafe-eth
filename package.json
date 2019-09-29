@@ -19,7 +19,7 @@
   "homepage": "https://github.com/CNapto/eatsafe-eth#readme",
   "dependencies": {
     "body-parser": "^1.19.0",
-    "cors": "^2.8.4",
+    "cors": "^2.8.5",
     "ejs": "^2.6.1",
     "express": "^4.16.4",
     "express-handlebars": "^3.0.0",
