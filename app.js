@@ -25,7 +25,7 @@ app.get('/',(req,res,next)=>{
 
 
 
-server = app.listen(process.env.PORT || 3000,()=>console.log("Listening...."))
+server = app.listen(process.env.PORT || 3000,()=>console.log("Listening..."))
 
 const io = socket(server);
 io.on("connection",(socket)=>{
