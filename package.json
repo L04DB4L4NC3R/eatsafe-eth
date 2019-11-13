@@ -26,7 +26,7 @@
     "ganache-cli": "^6.1.8",
     "morgan": "^1.9.1",
     "node-gyp": "^6.0.1",
-    "socket.io": "^2.2.0",
+    "socket.io": "^2.3.0",
     "truffle": "^5.0.38",
     "web3": "^1.2.1"
   }
